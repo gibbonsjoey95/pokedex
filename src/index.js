@@ -1,12 +1,23 @@
 import './styles.css';
+import pokeballIcon from './pokeball_icon.png';
 
 function component() {
-  const element = document.createElement('div');
+  const content = document.createElement('div');
+  content.classList.add('content');
 
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  const pokeball = new Image();
+  pokeball.src = pokeballIcon;
+  pokeball.classList.add('pokeball-icon');
 
-  return element;
+  const pokemonName = document.createElement('h1');
+  pokemonName.textContent = 'Pokemon Name';
+  pokemonName.classList.add('pokemon-name-container');
+
+  pokemonName.prepend(pokeball);
+
+  content.appendChild(pokemonName);
+
+  return content;
 }
 
 document.body.appendChild(component());

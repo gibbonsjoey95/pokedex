@@ -1,3 +1,31 @@
-.hello {
-    color: red;
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.content {
+    background-color: #ff1616;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+}
+
+.pokemon-name-container {
+    background-color: yellow;
+    margin: 100px;
+    height: 60px;
+    padding-right: 10px;
+    border: 5px solid gray;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px black inset, 0 0 0 3px black;
+    display: inline-flex;
+    align-items: center;
+}
+
+.pokeball-icon {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    margin-left: -30px;
+    margin-right: 5px;
 }
