@@ -25,8 +25,6 @@ const navbar = () => {
 
   navbar.appendChild(pokemonName);
   navbar.appendChild(searchContainer);
-
-  return navbar;
 };
 
 export default navbar;
