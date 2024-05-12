@@ -1,9 +1,9 @@
 import './styles.css';
-import navbar from './navbar';
+import renderNavbar from './render_navbar';
 import display_pokemon_info_page from './display_pokemon_info_page';
 
 function component() {
-  navbar();
+  renderNavbar();
   display_pokemon_info_page();
 }
 

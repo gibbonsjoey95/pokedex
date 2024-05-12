@@ -1,6 +1,7 @@
 import pokeballIcon from './pokeball_icon.png';
+import fetchPokemonData from './fetch_pokemon_data';
 
-const navbar = () => {
+const renderNavbar = () => {
   const navbar = document.querySelector('#navbar');
 
   const pokeball = new Image();
@@ -8,9 +9,7 @@ const navbar = () => {
   pokeball.classList.add('pokeball-icon');
 
   const pokemonName = document.createElement('h1');
-  pokemonName.textContent = 'Pokemon Name';
   pokemonName.classList.add('pokemon-name-container');
-
   pokemonName.prepend(pokeball);
 
   const searchContainer = document.createElement('div');
@@ -19,6 +18,12 @@ const navbar = () => {
 
   const searchButton = document.createElement('button');
   searchButton.textContent = 'Search';
+  searchButton.addEventListener('click', () => {
+    fetchPokemonData(searchInput.value).then((data) => {
+      pokemonName.textContent = data.name;
+      pokemonName.prepend(pokeball);
+    });
+  });
 
   searchContainer.appendChild(searchInput);
   searchContainer.appendChild(searchButton);
@@ -27,4 +32,4 @@ const navbar = () => {
   navbar.appendChild(searchContainer);
 };
 
-export default navbar;
+export default renderNavbar;
