@@ -8,7 +8,6 @@ async function fetchPokemonData(input) {
 
   const processedPokemonData = processPokemonData(pokemonData);
 
-  //   console.log(processedPokemonData);
   return processedPokemonData;
 }
 
