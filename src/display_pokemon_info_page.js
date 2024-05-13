@@ -1,8 +1,8 @@
 import pokeballIcon from './pokeball_icon.png';
 
-const displayPokemonInfoPage = () => {
-  const content = document.querySelector('#content');
-  content.classList.add('content');
+const displayPokemonInfoPage = (image) => {
+  const pokemonContent = document.createElement('div');
+  pokemonContent.classList.add('pokemon-content');
 
   const h1 = document.createElement('h1');
   h1.textContent = 'teest';
@@ -11,17 +11,18 @@ const displayPokemonInfoPage = () => {
   pokemonImageContainer.classList.add('pokemon-image-container');
 
   const pokemonImage = new Image();
-  pokemonImage.src = pokeballIcon;
+  pokemonImage.src = image;
+  pokemonImage.classList.add('pokemon-image');
 
   pokemonImageContainer.appendChild(pokemonImage);
 
   const pokemonInfoContainer = document.createElement('div');
   pokemonInfoContainer.classList.add('pokemon-info-container');
 
-  content.appendChild(pokemonImageContainer);
-  content.appendChild(pokemonInfoContainer);
+  pokemonContent.appendChild(pokemonImageContainer);
+  pokemonContent.appendChild(pokemonInfoContainer);
 
-  return content;
+  return pokemonContent;
 };
 
 export default displayPokemonInfoPage;
