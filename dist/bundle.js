@@ -120,43 +120,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/fetch_pokemon_data.js":
-/*!***********************************!*\
-  !*** ./src/fetch_pokemon_data.js ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _process_pokemon_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./process_pokemon_data */ \"./src/process_pokemon_data.js\");\n\n\nasync function fetchPokemonData(input) {\n  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${input}`, {\n    mode: 'cors',\n  });\n  const pokemonData = await response.json();\n\n  const processedPokemonData = (0,_process_pokemon_data__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(pokemonData);\n\n  //   console.log(processedPokemonData);\n  return processedPokemonData;\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (fetchPokemonData);\n\n\n//# sourceURL=webpack://template/./src/fetch_pokemon_data.js?");
-
-/***/ }),
-
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _render_navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./render_navbar */ \"./src/render_navbar.js\");\n/* harmony import */ var _display_pokemon_info_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./display_pokemon_info_page */ \"./src/display_pokemon_info_page.js\");\n\n\n\n\nfunction component() {\n  (0,_render_navbar__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n  (0,_display_pokemon_info_page__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n}\n\ncomponent();\n\n\n//# sourceURL=webpack://template/./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/process_pokemon_data.js":
-/*!*************************************!*\
-  !*** ./src/process_pokemon_data.js ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst processPokemonData = (data) => {\n  const { name, id, height, weight, sprites } = data;\n  const { front_default } = sprites;\n\n  return { name, id, height, weight, front_default };\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (processPokemonData);\n\n\n//# sourceURL=webpack://template/./src/process_pokemon_data.js?");
-
-/***/ }),
-
-/***/ "./src/render_navbar.js":
-/*!******************************!*\
-  !*** ./src/render_navbar.js ***!
-  \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _pokeball_icon_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pokeball_icon.png */ \"./src/pokeball_icon.png\");\n/* harmony import */ var _fetch_pokemon_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./fetch_pokemon_data */ \"./src/fetch_pokemon_data.js\");\n\n\n\nconst renderNavbar = () => {\n  const navbar = document.querySelector('#navbar');\n\n  const pokeball = new Image();\n  pokeball.src = _pokeball_icon_png__WEBPACK_IMPORTED_MODULE_0__;\n  pokeball.classList.add('pokeball-icon');\n\n  const pokemonName = document.createElement('h1');\n  pokemonName.classList.add('pokemon-name-container');\n  pokemonName.prepend(pokeball);\n\n  const searchContainer = document.createElement('div');\n\n  const searchInput = document.createElement('input');\n\n  const searchButton = document.createElement('button');\n  searchButton.textContent = 'Search';\n  searchButton.addEventListener('click', () => {\n    (0,_fetch_pokemon_data__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(searchInput.value).then((data) => {\n      pokemonName.textContent = data.name;\n      pokemonName.prepend(pokeball);\n    });\n  });\n\n  searchContainer.appendChild(searchInput);\n  searchContainer.appendChild(searchButton);\n\n  navbar.appendChild(pokemonName);\n  navbar.appendChild(searchContainer);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderNavbar);\n\n\n//# sourceURL=webpack://template/./src/render_navbar.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _display_pokemon_info_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./display_pokemon_info_page */ \"./src/display_pokemon_info_page.js\");\n/* harmony import */ var _pokeball_icon_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pokeball_icon.png */ \"./src/pokeball_icon.png\");\n\n\n\n\nconst pokeballIconImage = document.querySelector('#pokeballIcon');\n\nfunction component() {\n  pokeballIconImage.src = _pokeball_icon_png__WEBPACK_IMPORTED_MODULE_2__;\n\n  (0,_display_pokemon_info_page__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n}\n\ncomponent();\n\n\n//# sourceURL=webpack://template/./src/index.js?");
 
 /***/ }),
 

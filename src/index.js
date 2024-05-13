@@ -1,9 +1,12 @@
 import './styles.css';
-import renderNavbar from './render_navbar';
 import display_pokemon_info_page from './display_pokemon_info_page';
+import pokeballIcon from './pokeball_icon.png';
+
+const pokeballIconImage = document.querySelector('#pokeballIcon');
 
 function component() {
-  renderNavbar();
+  pokeballIconImage.src = pokeballIcon;
+
   display_pokemon_info_page();
 }
 
